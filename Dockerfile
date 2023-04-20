@@ -1,11 +1,14 @@
 FROM node:17-alpine
-ENV NODE_ENV production
 
-COPY . /workspace
-WORKDIR /workspace
+# 在容器中建立一個 app 目錄來存放 Node.js 應用程式的程式碼
+WORKDIR /app
 
-RUN npm install --legacy-peer-deps
+# 安裝 Node.js 應用程式所需的套件
+COPY package*.json ./
+RUN npm install
 
-EXPOSE 5000
+# 把程式碼複製到容器中的 app 目錄
+COPY . .
 
-CMD npm start
+# 設定 Node.js 應用程式啟動時的指令
+CMD [ "npm", "start" ]
