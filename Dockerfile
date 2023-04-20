@@ -10,5 +10,7 @@ RUN npm install
 # 把程式碼複製到容器中的 app 目錄
 COPY . .
 
+EXPOSE 8080
+
 # 設定 Node.js 應用程式啟動時的指令
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
