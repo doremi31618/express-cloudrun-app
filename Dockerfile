@@ -13,4 +13,4 @@ COPY . .
 EXPOSE 8080
 
 # 設定 Node.js 應用程式啟動時的指令
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
